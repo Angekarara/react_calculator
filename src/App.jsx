@@ -7,7 +7,7 @@ function App() {
     setValue("");
   };
  
-  const deleteResult = () => {
+  const backSpace = () => {
     setValue(prevValue => prevValue.slice(0, -1))
   }
 
@@ -61,7 +61,7 @@ function App() {
               className="bg-gray-300 hover:bg-gray-400 
                            text-gray-800 font-bold py-2 
                            px-4 rounded"
-              onClick={deleteResult}
+              onClick={backSpace}
             >
               DE
             </button>
