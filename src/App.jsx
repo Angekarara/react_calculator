@@ -6,6 +6,14 @@ function App() {
   const clearResult = () => {
     setValue("");
   };
+ 
+  const deleteResult = () => {
+    setValue(prevValue => prevValue.slice(0, -1))
+  }
+
+  const toggleSign = () => {
+    setValue((prevValue) => (prevValue.charAt(0) === '-' ? prevValue.slice(0) : '-' + prevValue) )
+  }
 
   const appendCharacter = (char) => {
     setValue((prevValue) => prevValue + char);
@@ -26,20 +34,13 @@ function App() {
                    items-center h-screen m-10"
       >
         <div
-          className="bg-yellow-400 p-8 rounded-lg shadow-lg 
-                     border-2 border-gray-400 "
+          className="bg-white p-8 rounded-lg shadow-lg"
         >
-          <h1
-            className="text-3xl font-bold 
-                       text-center mb-4"
-          >
-            Basic Calculator
-          </h1>
 
           <input
             type="text"
             id="result"
-            className="w-full bg-gray-200 text-right 
+            className="w-full bg-gray-600 text-right 
                       p-4 mb-4 border border-gray-300 
                       rounded-md focus:outline-none"
             placeholder="0"
@@ -54,31 +55,31 @@ function App() {
                            px-4 rounded"
               onClick={clearResult}
             >
-              C
+              AC
             </button>
             <button
               className="bg-gray-300 hover:bg-gray-400 
                            text-gray-800 font-bold py-2 
                            px-4 rounded"
-              onClick={() => appendCharacter("(")}
+              onClick={deleteResult}
             >
-              (
+              DE
             </button>
             <button
               className="bg-gray-300 hover:bg-gray-400 
                            text-gray-800 font-bold py-2 
                            px-4 rounded"
-              onClick={() => appendCharacter(")")}
+              onClick={toggleSign}
             >
-              )
+              -/+
             </button>
             <button
               className="bg-gray-300 hover:bg-gray-400 
                            text-gray-800 font-bold py-2 
-                           px-4 rounded"
+                           px-4 rounded text-2xl"
               onClick={() => appendCharacter("/")}
             >
-              /
+              ÷
             </button>
             <button
               className="bg-gray-300 hover:bg-gray-400 
@@ -107,10 +108,10 @@ function App() {
             <button
               className="bg-gray-300 hover:bg-gray-400 
                            text-gray-800 font-bold py-2 
-                           px-4 rounded"
+                           px-4 rounded text-xl "
               onClick={() => appendCharacter("*")}
             >
-              *
+              x
             </button>
             <button
               className="bg-gray-300 hover:bg-gray-400 
@@ -139,7 +140,7 @@ function App() {
             <button
               className="bg-gray-300 hover:bg-gray-400 
                            text-gray-800 font-bold py-2 
-                           px-4 rounded"
+                           px-4 rounded text-2xl"
               onClick={() => appendCharacter("-")}
             >
               -
@@ -171,7 +172,7 @@ function App() {
             <button
               className="bg-gray-300 hover:bg-gray-400 
                            text-gray-800 font-bold py-2 
-                           px-4 rounded"
+                           px-4 rounded text-2xl"
               onClick={() => appendCharacter("+")}
             >
               +
@@ -203,7 +204,7 @@ function App() {
             <button
               className="bg-gray-300 hover:bg-gray-400 
                            text-gray-800 font-bold py-2 
-                           px-4 rounded"
+                           px-4 rounded text-xl"
               onClick={() => appendCharacter("%")}
             >
               %
